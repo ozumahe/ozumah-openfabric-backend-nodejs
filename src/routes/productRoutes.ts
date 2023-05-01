@@ -8,22 +8,21 @@ import {
 
 import {
   createProduct,
-  // getAllproducts,
-  // getSingleProduct,
-  // updateProduct,
-  // deleteProduct,
-  // uploadImage,
+  getAllproducts,
+  getSingleProduct,
+  updateProduct,
+  deleteProduct,
 } from "../controllers/productController";
 
 router
   .route("/")
-  .post([authenticateUser, authenticatePermission("admin")], createProduct);
-// .get(getAllproducts);
+  .post([authenticateUser, authenticatePermission("admin")], createProduct)
+  .get(getAllproducts);
 
-// router
-//   .route("/:id")
-//   .get(getSingleProduct)
-//   .patch([authenticateUser, authenticatePermission("admin")], updateProduct)
-//   .delete([authenticateUser, authenticatePermission("admin")], deleteProduct);
+router
+  .route("/:id")
+  .get(getSingleProduct)
+  .patch([authenticateUser, authenticatePermission("admin")], updateProduct)
+  .delete([authenticateUser, authenticatePermission("admin")], deleteProduct);
 
 export default router;
