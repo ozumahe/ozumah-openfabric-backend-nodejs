@@ -9,10 +9,10 @@ import cors from "cors";
 import morgan from "morgan";
 
 //ROUTES
-import { paymentRouter, authRouter } from "../src/routes";
-import { AppDataSource } from "./data-source";
+import { authRouter } from "../src/routes";
 import errorHandlerMiddleware from "./middleware/error-handler";
 import { jwtSecret } from "./utils/jwt";
+import connectDB from "./db/connect";
 
 const app: Application = express();
 
@@ -26,15 +26,20 @@ app.get("/", (req: Request, res: Response, next: NextFunction) => {
 });
 
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/payment", paymentRouter);
 
 app.use(errorHandlerMiddleware);
 
 const PORT = process.env.PORT || 5000;
 
-AppDataSource.initialize()
-  .then(() => {
-    app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
-    // here you can start to work with your database
-  })
-  .catch((error) => console.log(error));
+const start = async () => {
+  try {
+    console.log("LLL");
+    await connectDB(process.env.MONGO_URI);
+
+    app.listen(PORT, () => console.log(`Server listing on Port ${PORT}...`));
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+start();

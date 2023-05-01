@@ -1,7 +1,5 @@
 import jwt from "jsonwebtoken";
-import { Response } from "express";
-
-export const jwtSecret = "euielia92092k@ujdyeenn34";
+import type { Response } from "express";
 
 const createJWT = ({ payload }: any) => {
   const token = jwt.sign(payload, process.env.JWT_SECRET || "");
@@ -20,11 +18,11 @@ const attachCookiesToResponse = ({
 }) => {
   const token = createJWT({ payload: user });
 
-  const oneDay = 1000 * 60 * 60 * 24;
+  const threeDays = 1000 * 60 * 60 * 72;
 
   res.cookie("token", token, {
     httpOnly: true,
-    expires: new Date(Date.now() + oneDay),
+    expires: new Date(Date.now() + threeDays),
     secure: process.env.NODE_ENV === "production",
     signed: true,
   });
