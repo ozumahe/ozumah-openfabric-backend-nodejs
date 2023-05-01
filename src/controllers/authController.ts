@@ -7,14 +7,14 @@ import * as Errors from "../errors";
 
 // SIGN UP
 const signUp = async (req: Request, res: Response) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, role } = req.body;
   const existingEmail = await UserSchema.findOne({ email });
 
   if (existingEmail) {
     throw new Errors.BadRequestError("Email Aready Exit");
   }
 
-  const user = await UserSchema.create({ name, email, password });
+  const user = await UserSchema.create({ name, email, password, role });
 
   const tokenUser = createTokenUser(user);
 

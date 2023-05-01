@@ -20,7 +20,7 @@ const productSchema = new mongoose.Schema(
     },
     image: {
       type: String,
-      default: "/uploads/example.jpg",
+      required: true,
     },
     user: {
       type: mongoose.Types.ObjectId,

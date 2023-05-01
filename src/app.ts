@@ -9,7 +9,7 @@ import cors from "cors";
 import morgan from "morgan";
 
 //ROUTES
-import { authRouter } from "../src/routes";
+import { authRouter, productRouter } from "../src/routes";
 import errorHandlerMiddleware from "./middleware/error-handler";
 import connectDB from "./db/connect";
 
@@ -25,6 +25,7 @@ app.get("/", (req: Request, res: Response, next: NextFunction) => {
 });
 
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/product", productRouter);
 
 app.use(errorHandlerMiddleware);
 
