@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
 import validator from "validator";
 import bcryptjs from "bcryptjs";
+import { User } from "../utils/types";
 
-const UserShema = new mongoose.Schema({
+const UserShema = new mongoose.Schema<User>({
   name: {
     type: String,
     required: [true, "Please provide user name"],
@@ -45,4 +46,4 @@ UserShema.methods.comparePassword = async function (candidatePassword) {
   return isMatch;
 };
 
-export default mongoose.model("User", UserShema);
+export default mongoose.model<User>("User", UserShema);

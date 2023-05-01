@@ -11,7 +11,6 @@ import morgan from "morgan";
 //ROUTES
 import { authRouter } from "../src/routes";
 import errorHandlerMiddleware from "./middleware/error-handler";
-import { jwtSecret } from "./utils/jwt";
 import connectDB from "./db/connect";
 
 const app: Application = express();
