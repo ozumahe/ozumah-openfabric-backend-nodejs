@@ -11,7 +11,7 @@ import morgan from "morgan";
 //ROUTES
 import { authRouter, productRouter } from "../src/routes";
 import errorHandlerMiddleware from "./middleware/error-handler";
-import connectDB from "./db/connect";
+import connectMongooseDB from "./db/connect";
 
 const app: Application = express();
 
@@ -31,10 +31,9 @@ app.use(errorHandlerMiddleware);
 
 const PORT = process.env.PORT || 5000;
 
-const start = async () => {
+const initAPP = async () => {
   try {
-    console.log("LLL");
-    await connectDB(process.env.MONGO_URI);
+    await connectMongooseDB(process.env.MONGO_URI || "");
 
     app.listen(PORT, () => console.log(`Server listing on Port ${PORT}...`));
   } catch (e) {
@@ -42,4 +41,4 @@ const start = async () => {
   }
 };
 
-start();
+initAPP();
