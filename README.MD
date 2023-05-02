@@ -1,8 +1,25 @@
 ## Author: `Ozumah Ebenezer`
 
+# Tech Stack Used
+
+- Node Js
+- Express Js
+- MongoDB
+- TypeScript
+
 # Step by Step Instructions on How to Deploy Nodejs Application on Heroku Using CLI
 
 - ## Heroku account and heroku cli
+
+  [https://signup.heroku.com/](https://signup.heroku.com/)
+
+  <br/>
+
+- ## Build App
+
+  - #### `Run "npm run build"`
+
+<br/>
 
 - ## Script Setup
 

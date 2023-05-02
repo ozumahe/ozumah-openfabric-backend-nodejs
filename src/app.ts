@@ -9,7 +9,7 @@ import cors from "cors";
 import morgan from "morgan";
 
 //ROUTES
-import { authRouter, productRouter } from "../src/routes";
+import { authRouter, productRouter } from "./routes";
 import errorHandlerMiddleware from "./middleware/error-handler";
 import connectMongooseDB from "./db/connect";
 
