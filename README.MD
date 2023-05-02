@@ -6,15 +6,15 @@
 
 - ## Script Setup
 
-### `Add script command dev : "nodemon app.js" (with the main  entry point for the resulting app) and start : "node <prod main entry point>"`
+  - ### `Add script command dev : "nodemon app.js" (with the main  entry point for the resulting app) and start : "node <prod main entry point>"`
 
-### `For this project i will be using start to "node ./dist/app.js" because dist is my build folder`
+  - ### `For this project i will be using start to "node ./dist/app.js" because dist is my build folder`
 
 <br/>
 
 - ## Setup node version in package.json
 
-### `Check the node version on your computer`
+  - ### `Check the node version on your computer`
 
 ```
 - "engines": {"node": "16.x"}
@@ -24,9 +24,7 @@
 
 - ## Create a Procfile file on your root folder "web: node app.js"
 
-<br/>
-
-### `Add "web: node <prod main entry point>" (with the main  entry point for the resulting app)`
+  - ### `Add "web: node <prod main entry point>" (with the main  entry point for the resulting app)`
 
 <br/>
 
