@@ -20,6 +20,7 @@ const attachCookiesToResponse = ({
 
   const threeDays = 1000 * 60 * 60 * 72;
 
+  res.setHeader("Access-Control-Allow-Credentials", "http://localhost:4200/");
   res.cookie("token", token, {
     httpOnly: true,
     expires: new Date(Date.now() + threeDays),

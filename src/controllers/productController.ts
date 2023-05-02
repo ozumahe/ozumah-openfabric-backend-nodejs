@@ -37,6 +37,7 @@ const getSingleProduct = async (req: Request, res: Response) => {
   if (!product)
     throw new Errors.NotFoundError(`No product found with id: ${productId}`);
 
+  res.setHeader("Access-Control-Allow-Credentials", "http://localhost:4200/");
   res.status(StatusCodes.OK).json({ data: product });
 };
 

@@ -1,8 +1,8 @@
 import { StatusCodes } from "http-status-codes";
 import UserSchema from "../models/UserSchema";
-import { attachCookiesToResponse } from "../utils/jwt";
 import createTokenUser from "../utils/createTokenUser";
 import { Request, Response } from "express";
+import jwt from "jsonwebtoken";
 import * as Errors from "../errors";
 
 // SIGN UP
@@ -18,9 +18,11 @@ const signUp = async (req: Request, res: Response) => {
 
   const tokenUser = createTokenUser(user);
 
-  attachCookiesToResponse({ res, user: tokenUser });
+  const token = jwt.sign(tokenUser, process.env.JWT_SECRET || "", {
+    expiresIn: "30d",
+  });
 
-  res.status(StatusCodes.CREATED).json({ user: tokenUser });
+  res.status(StatusCodes.CREATED).json({ user: tokenUser, token });
 };
 
 // LOGIN
@@ -45,8 +47,11 @@ const login = async (req: Request, res: Response) => {
 
   const tokenUser = createTokenUser(user);
 
-  attachCookiesToResponse({ res, user: tokenUser });
-  res.status(StatusCodes.OK).json({ user: tokenUser });
+  const token = jwt.sign(tokenUser, process.env.JWT_SECRET || "", {
+    expiresIn: "30d",
+  });
+
+  res.status(StatusCodes.OK).json({ user: tokenUser, token });
 };
 
 export { login, signUp };

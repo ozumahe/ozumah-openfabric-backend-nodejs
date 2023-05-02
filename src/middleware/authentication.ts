@@ -1,25 +1,29 @@
 import type { Request, Response, NextFunction } from "express";
+
 import * as Errors from "../errors";
 import { verifyJWT } from "../utils/jwt";
-import { User } from "../utils/types";
 
 const authenticateUser = async (
   req: Request | any,
   res: Response,
   next: NextFunction
 ) => {
-  const { token } = req.signedCookies;
+  const authHeader = req.headers.authorization;
 
-  if (!token) {
-    throw new Errors.UnauthenticatedError("Not Authorized");
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    throw new Errors.UnauthenticatedError("No token provided");
   }
+
+  const token = authHeader.split(" ")[1];
 
   try {
     const { name, userId, role }: any = verifyJWT({ token });
     req.user = { name, userId, role };
     next();
   } catch (error) {
-    throw new Errors.UnauthenticatedError("Not Authorized");
+    throw new Errors.UnauthenticatedError(
+      "Not authorized to access this route"
+    );
   }
 };
 
