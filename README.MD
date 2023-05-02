@@ -1,6 +1,6 @@
 ## Author: `Ozumah Ebenezer`
 
-# Step by Step Instructions on How to Deploy Nodejs Application on Heroku
+# Step by Step Instructions on How to Deploy Nodejs Application on Heroku Using CLI
 
 - [] heroku account and heroku cli
 - [] remove/copy from the main repo
