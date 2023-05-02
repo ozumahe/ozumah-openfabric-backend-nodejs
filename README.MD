@@ -2,7 +2,7 @@
 
 # Step by Step Instructions on How to Deploy Nodejs Application on Heroku Using CLI
 
-- ## heroku account and heroku cli
+- ## Heroku account and heroku cli
 
 - ## Script Setup
 
@@ -12,9 +12,7 @@
 
 <br/>
 
-- ## setup node version in package.json
-
-<br/>
+- ## Setup node version in package.json
 
 ### `Check the node version on your computer`
 
