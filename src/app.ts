@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(cookieParser(process.env.JWT_SECRET));
 
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
-  res.send("Testing Ozumah Ebenezer Backend Server");
+  res.send("Testing Ozumah Ebenezer OpenFabric Backend Server");
 });
 
 app.use("/api/v1/auth", authRouter);
