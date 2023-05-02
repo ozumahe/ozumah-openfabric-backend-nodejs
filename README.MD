@@ -6,9 +6,9 @@
 
 - ## Script Setup
 
-### `add script command dev : "nodemon app.js" (with the main  entry point for the resulting app) and start : "node <prod main entry point>"`
+### `Add script command dev : "nodemon app.js" (with the main  entry point for the resulting app) and start : "node <prod main entry point>"`
 
-### `for this project i will be using start to "node ./dist/app.js" because dist is my build folder`
+### `For this project i will be using start to "node ./dist/app.js" because dist is my build folder`
 
 <br/>
 
@@ -26,7 +26,7 @@
 
 <br/>
 
-### `add "web: node <prod main entry point>" (with the main  entry point for the resulting app)`
+### `Add "web: node <prod main entry point>" (with the main  entry point for the resulting app)`
 
 <br/>
 
